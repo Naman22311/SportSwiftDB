@@ -19,7 +19,7 @@
         <ul class="nav nav-pills">
             <li class="nav-item"><a href="\login" class="nav-link" >Home</a></li>
             <li class="nav-item"><a href="#" class=" nav-link active" aria-current="page" style="background-color: #E73725">Login</a></li>
-            <li class="nav-item"><a href="\explore" class="nav-link">Explore</a></li>
+            <li class="nav-item"><a href="{{ url_for('explore') }}" class="nav-link">Explore</a></li>
             <li class="nav-item"><a href="\cart" class="nav-link">Cart</a></li>
             <li class="nav-item"><a href="\about" class="nav-link">About</a></li>
         </ul>
@@ -28,7 +28,7 @@
 
 <div class="container body w-100 align-items-center" style="height: 600px">
 <div class=" container pt-5 mt-5 align-content-center form-signin  m-auto">
-    <form>
+    <form action = '#' method = "post">
         <h1 class="h3 fw-bolder mb-3 fw-normal" style="color: white">SportSwiftDB</h1>
         <h1 class="h3 mb-3 fw-normal" style="color: white">Please sign in</h1>
 
@@ -41,11 +41,8 @@
             <label for="floatingPassword">Password</label>
         </div>
 
-        <div class="form-check text-start my-3">
-            <!-- <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault" style="color: white">
-                Remember me
-            </label> -->
+        <div class="form-check text-start">
+            <a href="{{ url_for('signUp.signup') }}"> Sign Up?</a>
         </div>
         <button class="btn btn-outline-light w-100 py-2" type="submit" style="background-color: #E73725">Sign in</button>
         <p class="mt-5 mb-3 " style="color: white">© 2017–2024</p>

@@ -1,4 +1,8 @@
 from flask import render_template, request, redirect, url_for, flash, session, Blueprint
+from flask_sqlalchemy import SQLAlchemy
+from flask_mysqldb import MySQL
+import secrets
+import pymysql.cursors
 from app import mysql
 
 auth = Blueprint("auth", __name__, template_folder='../Frontend/HTML', static_folder='../Frontend/static')

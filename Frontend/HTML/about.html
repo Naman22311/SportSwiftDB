@@ -2,9 +2,88 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>SportSwiftDB</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/base_style.css') }}">
+
 </head>
 <body>
+<!--header-->
+<div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+        <a href="/" class="d-flex fw-bolder align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+            <span class="fs-4">SportSwiftDB</span>
+        </a>
 
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a href="#" class="nav-link" >Home</a></li>
+            <li class="nav-item"><a href="{{ url_for('auth.login') }}" class="nav-link">Login</a></li>
+            <li class="nav-item"><a href="{{ url_for('explore') }}" class="nav-link">Explore</a></li>
+            <li class="nav-item"><a href="\cart" class="nav-link">Cart</a></li>
+            <li class="nav-item"><a href="\about" class="nav-link active" aria-current="page" style="background-color: #E73725">About</a></li>
+        </ul>
+    </header>
+</div>
+
+<div class="container  cover-container d-flex flex-column">
+
+    <main class="pt-5 pb-5 mb-5">
+        <h1>About Us</h1>
+        <p class="lead">This is an E-commerce website which sells sports merchandise, it's functions include login/register, searching for sports items, adding items to cart
+        and buying them. This has been implemented through the following:</p>
+
+        <div class="d-flex flex-column flex-md-row pt-4 gap-4 py-md-5">
+            <div class="list-group list-group-checkable d-grid gap-4 border-0">
+                <label class="list-group-item rounded-3 py-3">
+                    HTML, CSS, JavaScript, BootStrap
+                    <span class="d-block small opacity-50">They make up the frontend styling and animations.</span>
+                </label>
+
+                <label class="list-group-item rounded-3 py-3">
+                    SQL
+                    <span class="d-block small opacity-50">For managing the database, accessing and storing the information of the users. We have also implemented triggers, transactions and embedded SQL queries</span>
+                </label>
+
+                <label class="list-group-item rounded-3 py-3">
+                    Flask
+                    <span class="d-block small opacity-50">It's the Web framework that is responsible for the working of the whole structure</span>
+                </label>
+
+            </div>
+        </div>
+
+
+    </main>
+</div>
+
+<div class="container card">
+    <div class="card-header" style="background-color: white">
+        Made By:
+    </div>
+    <div class="card-body">
+        <blockquote class="blockquote mb-0">
+            <p>Shrutya Chawla (IIITD'26 CSE) and Naman Jindal (IIITD'26 CSB)</p>
+        </blockquote>
+    </div>
+</div>
+
+<!--footer-->
+<div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <p class="col-md-4 mb-0 text-body-secondary">© 2024 SportSwiftDB</p>
+
+        <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+            <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+        </a>
+
+        <ul class="nav col-md-4 justify-content-end">
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
+            <li class="nav-item"><a href="FAQ.html" class="nav-link px-2 text-body-secondary">FAQs</a></li>
+            <li class="nav-item"><a href="about.html" class="nav-link px-2 text-body-secondary">About</a></li>
+        </ul>
+    </footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
