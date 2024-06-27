@@ -55,7 +55,7 @@ def login():
 
         customer = validate_customer(email, password)
         if customer:
-            session["customer"] = customer
+            session["customer_ID"] = customer
             reset_failed_attempts(email)
             return redirect(url_for('home'))  
         else:

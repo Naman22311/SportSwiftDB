@@ -9,7 +9,7 @@ signUp = Blueprint("signUp", __name__, template_folder='../Frontend/HTML', stati
 
 def exists(email):
     cursor = mysql.connection.cursor()
-    cursor.execute("SELECT Customer_ID FROM customer where email_ID = %s", (email))
+    cursor.execute("SELECT Customer_ID FROM customer where email_ID = %s", (email,))
     user = cursor.fetchone()
     cursor.close()
     return user
@@ -17,17 +17,16 @@ def exists(email):
 def register(name, email, password, address):
     cursor = mysql.connection.cursor()
     cursor.execute("INSERT INTO customer (Name, email_ID, Password, Address) VALUES (%s, %s, %s, %s)", (name, email, password, address))
+    mysql.connection.commit()
     cursor.close()
 
 @signUp.route('/signup', methods=['GET', 'POST'])
 def signup():
-    print("Meow1")
     if request.method == 'POST':
         Name = request.form['Name']
         email = request.form['email']
         password = request.form['password']
         Address = request.form['Address']
-        print("Meow2")
 
         if exists(email):
             flash('email already taken!')
