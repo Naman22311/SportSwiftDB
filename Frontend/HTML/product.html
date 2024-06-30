@@ -69,7 +69,6 @@
             <div class="product-detail">
                 <img id="product-image" src="{{ url_for('static', filename=product['Image_Path']) }}" alt="Product Image">
                 <h1 id="product-name">{{ product['Name'] }}</h1>
-                <p id="product-category">{{ product['Category'] }}</p>
                 <p id="product-price">${{ product['Price'] }}</p>
                 <p id="product-description">{{ product['Description'] }}</p>
                 <div class="quantity-setter">
@@ -97,5 +96,24 @@
             </ul>
         </footer>
     </div>
+<script>document.addEventListener('DOMContentLoaded', function() {
+    const quantityInput = document.getElementById('quantity');
+    const quantityAlert = document.getElementById('quantity-alert');
+
+    quantityInput.addEventListener('input', function() {
+        const maxQuantity = parseInt(quantityInput.max);
+        const currentQuantity = parseInt(quantityInput.value);
+
+        if (currentQuantity > maxQuantity) {
+            quantityAlert.textContent = `Only ${maxQuantity} items available!`;
+            quantityAlert.classList.remove('hidden');
+            quantityAlert.classList.add('jiggle');
+        } else {
+            quantityAlert.classList.add('hidden');
+            quantityAlert.classList.remove('jiggle');
+        }
+    });
+});
+</script>
 </body>
 </html>
