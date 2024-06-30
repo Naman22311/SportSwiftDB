@@ -28,16 +28,17 @@ connection = pymysql.connect(
     database='SportSwiftDB',
     cursorclass=pymysql.cursors.DictCursor
 )
-
 from login import auth  
 from signUp import signUp
 from Cart import Cart
 from Checkout import Checkout
+from product_details import product_details  
 
 app.register_blueprint(auth, url_prefix="/auth")  
 app.register_blueprint(signUp, url_prefix="/signUp")  
 app.register_blueprint(Cart, url_prefix="/Cart")  
-app.register_blueprint(Checkout, url_prefix="/Checkout")  
+app.register_blueprint(Checkout, url_prefix="/Checkout")
+app.register_blueprint(product_details, url_prefix="/product")  
 
 @app.route("/")
 def home():
@@ -50,7 +51,6 @@ def explore():
 @app.route("/about")
 def about():
     return render_template("about.html")
-
 
 if __name__ == "__main__":
     app.run()
