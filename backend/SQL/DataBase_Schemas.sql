@@ -15,6 +15,13 @@ CREATE TABLE IF NOT EXISTS Cart (
     Product_ID INT NOT NULL,
     FOREIGN KEY (Customer_ID) REFERENCES Customer(Customer_ID)
 );
+
+CREATE TABLE IF NOT EXISTS Orders (
+    Customer_ID INT NOT NULL,
+    Product_ID INT NOT NULL,
+    FOREIGN KEY (Customer_ID) REFERENCES Customer(Customer_ID)
+);
+
 INSERT INTO Cart VALUE (1, 1);
 INSERT INTO Cart VALUE (1, 2);
 
