@@ -40,7 +40,3 @@ INSERT INTO Customer VALUES (1, 'Shrutya', "adsish", 'abcd1@gmail.com', 'abcd1',
 INSERT INTO Customer VALUES (2, 'Naman', "askdn", 'abcd2@gmail.com', 'abcd2', 0);
 SELECT *
 from Customer;
-
-Select *
-from product;
-

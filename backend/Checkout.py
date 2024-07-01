@@ -9,28 +9,25 @@ Checkout = Blueprint('Checkout', __name__, template_folder='../Frontend/HTML', s
 
 @Checkout.route('/checkout/clear_cart', methods=['POST'])
 def clear_cart():
-    customer_id = session.get("customer_ID")
-    if customer_id:
-        cursor = mysql.connection.cursor()
-        cursor.execute("DELETE FROM Cart WHERE Customer_ID = %s", (customer_id,))
-        mysql.connection.commit()
-        cursor.close()
-    return redirect(url_for('home'))
+    customer_id = session["customer_ID"]
+    cursor = mysql.connection.cursor()
+    cursor.execute("DELETE FROM Cart WHERE Customer_ID = %s", (customer_id,))
+    mysql.connection.commit()
+    cursor.close()
+    return redirect(url_for('/'))
 
 def fetch_products(customer_id):
     cursor = mysql.connection.cursor()
     cursor.execute("SELECT * FROM Product WHERE Product_ID IN (SELECT Product_ID FROM Cart WHERE Customer_ID = %s)", (customer_id,))
     products = cursor.fetchall()
     cursor.close()
-    
-    total_amount = sum(product[2] for product in products) 
-    return products, total_amount
+    return products
 
 @Checkout.route('/checkout', methods=['GET'])
 def checkout():
-    customer_ID = session.get("customer_ID")
+    customer_ID = None
     products = []
-    total_amount = 0
-    if customer_ID:
-        products, total_amount = fetch_products(customer_ID)
-    return render_template("checkout.html", products=products, total_amount=total_amount)
+    if "customer_ID" in session:
+        customer_ID = session["customer_ID"]
+        products = fetch_products(customer_ID)
+    return render_template("checkout.html", products=products)
