@@ -1,3 +1,11 @@
+.fade-in {
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+}
+
+.fade-in.visible {
+    opacity: 1;
+}
 .body{
     background-image: url("../images/home_pic.jpg");
     background-size: cover;
@@ -19,4 +27,19 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.bounce-animation {
+    animation: bounce 1s;
 }

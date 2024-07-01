@@ -7,18 +7,18 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/base_style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/home_style.css') }}">
 </head>
-<body>
+<body class="fade-in">
 <!--header-->
 <div class="container">
     <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-        <a href="/" class="d-flex fw-bolder align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+        <a href="/" class="d-flex fw-bolder align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none link-hover-animation">
             <span class="fs-4">SportSwiftDB</span>
         </a>
         <ul class="nav nav-pills">
-            <li class="nav-item"><a href="{{ url_for('home') }}" class="nav-link">Home</a></li>
-            <li class="nav-item"><a href="{{ url_for('explore') }}" class="nav-link active" aria-current="page" style="background-color: #E73725">Explore</a></li>
-            <li class="nav-item"><a href="{{ url_for('Cart.cart') }}" class="nav-link">Cart</a></li>
-            <li class="nav-item"><a href="{{ url_for('about') }}" class="nav-link">About</a></li>
+            <li class="nav-item shake"><a href="{{ url_for('home') }}" class="nav-link hover-grow-shrink">Home</a></li>
+            <li class="nav-item shake"><a href="{{ url_for('explore') }}" class="nav-link shake active hover-grow-shrink" aria-current="page" style="background-color: #E73725">Explore</a></li>
+            <li class="nav-item shake"><a href="{{ url_for('Cart.cart') }}" class="nav-link shake hover-grow-shrink">Cart</a></li>
+            <li class="nav-item shake"><a href="{{ url_for('about') }}" class="nav-link shake hover-grow-shrink">About</a></li>
             <li class="dropdown-center">
                 <a class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" class="bi bi-person-circle mx-1 mt-1" viewBox="0 0 16 16">
                     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
