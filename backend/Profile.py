@@ -18,12 +18,17 @@ def update_profile():
     new_password = request.form['password']
     
     cursor = mysql.connection.cursor()
-    cursor.execute("""
-        UPDATE Customer 
-        SET email_ID = %s, Password = %s 
-        WHERE Customer_ID = %s
-    """, (new_email, new_password, customer_id))
-    mysql.connection.commit()
+    try:
+        cursor.execute("START TRANSACTION")
+        cursor.execute("""
+            UPDATE Customer 
+            SET email_ID = %s, Password = %s 
+            WHERE Customer_ID = %s
+        """, (new_email, new_password, customer_id))
+        cursor.execute("COMMIT")
+        mysql.connection.commit()
+    except Exception as e:
+        mysql.connection.rollback()
     cursor.close()
     
     flash('Profile updated successfully', 'success')

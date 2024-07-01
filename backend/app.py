@@ -9,14 +9,14 @@ app = Flask(__name__, template_folder='../Frontend/HTML', static_folder='../Fron
 app.config['SECRET_KEY'] = secrets.token_hex(16)
 
 user = "root"
-pin = ""
+pin = "Shrutya1%"
 host = "localhost"
 db_name = "SportSwiftDB"
 app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql+pymysql://{user}:{pin}@{host}/{db_name}"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = ''
+app.config['MYSQL_PASSWORD'] = 'Shrutya1%'
 app.config['MYSQL_DB'] = 'SportSwiftDB'
 
 mysql = MySQL(app)
@@ -24,7 +24,7 @@ mysql = MySQL(app)
 connection = pymysql.connect(
     host='localhost',
     user='root',
-    password='',
+    password='Shrutya1%',
     database='SportSwiftDB',
     cursorclass=pymysql.cursors.DictCursor
 )
@@ -40,6 +40,13 @@ app.register_blueprint(signUp, url_prefix="/signUp")
 app.register_blueprint(Cart, url_prefix="/Cart")  
 app.register_blueprint(Checkout, url_prefix="/Checkout")  
 app.register_blueprint(Profile, url_prefix="/Profile")  
+
+@app.route("/logout")
+def logout():
+    if "customer_ID" in session:
+        session.pop("customer_ID", None)
+    return render_template("home.html")
+
 
 @app.route("/")
 def home():

@@ -16,8 +16,14 @@ def exists(email):
 
 def register(name, email, password, address):
     cursor = mysql.connection.cursor()
-    cursor.execute("INSERT INTO customer (Name, email_ID, Password, Address) VALUES (%s, %s, %s, %s)", (name, email, password, address))
-    mysql.connection.commit()
+    try:
+        cursor.execute("START TRANSACTION")
+        cursor.execute("INSERT INTO customer (Name, email_ID, Password, Address) VALUES (%s, %s, %s, %s)", (name, email, password, address))
+        cursor.execute("COMMIT")
+        mysql.connection.commit()
+    except Exception as e:
+        mysql.connection.rollback()
+    
     cursor.close()
 
 @signUp.route('/signup', methods=['GET', 'POST'])

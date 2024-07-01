@@ -12,8 +12,14 @@ def clear_cart():
     customer_id = session.get("customer_ID")
     if customer_id:
         cursor = mysql.connection.cursor()
-        cursor.execute("DELETE FROM Cart WHERE Customer_ID = %s", (customer_id,))
-        mysql.connection.commit()
+        try:
+            cursor.execute("START TRANSACTION")
+            cursor.execute("DELETE FROM Cart WHERE Customer_ID = %s", (customer_id,))
+            cursor.execute("COMMIT")
+            mysql.connection.commit()
+        except Exception as e:
+            mysql.connection.rollback()
+        
         cursor.close()
     return redirect(url_for('home'))
 
