@@ -33,11 +33,13 @@ from login import auth
 from signUp import signUp
 from Cart import Cart
 from Checkout import Checkout
+from Profile import Profile
 
 app.register_blueprint(auth, url_prefix="/auth")  
 app.register_blueprint(signUp, url_prefix="/signUp")  
 app.register_blueprint(Cart, url_prefix="/Cart")  
 app.register_blueprint(Checkout, url_prefix="/Checkout")  
+app.register_blueprint(Profile, url_prefix="/Profile")  
 
 @app.route("/")
 def home():
