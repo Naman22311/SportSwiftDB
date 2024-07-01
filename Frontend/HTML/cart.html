@@ -45,20 +45,21 @@
                                 <button class="btn btn-outline-dark" type="submit">Remove From Cart</button>
                             </form>
                         </div>
-
                     </div>
                 </div>
             </div>
-
             {% endfor %}
         </ul>
+        
+        <form action="{{ url_for('Checkout.checkout') }}" method="get">
+            <button class="w btn btn-primary btn-outline-light btn-lg" type="submit" style="background-color: #E73725"> Continue to checkout</button>
+        </form>
     {% else %}
         <p>Your cart is empty.</p>
     {% endif %}
-
-    <button class="w btn btn-primary btn-outline-light btn-lg" type="submit" style="background-color: #E73725">Continue to checkout</button>
-
 </div>
+
+
 <!--footer-->
 <div class="container">
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
