@@ -9,7 +9,7 @@ def product_detail(product_id):
     cursor.execute("SELECT * FROM Product WHERE Product_ID = %s", (product_id,))
     product = cursor.fetchone()
     cursor.close()
-    return render_template('product_details.html', product=product)
+    return render_template('product_detail.html', product=product)
 
 @product_details.route('/getProduct/<int:product_id>')
 def get_product(product_id):

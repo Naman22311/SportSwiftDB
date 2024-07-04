@@ -10,19 +10,6 @@ CREATE TABLE IF NOT EXISTS Customer (
     failed_attempts INT DEFAULT 0,
     PRIMARY KEY (Customer_ID)
 );
-
-CREATE TABLE IF NOT EXISTS Cart (
-    Customer_ID INT NOT NULL,
-    Product_ID INT NOT NULL,
-    FOREIGN KEY (Customer_ID) REFERENCES Customer(Customer_ID)
-);
-
-CREATE TABLE IF NOT EXISTS check_blocked(
-        Customer_ID INT NOT NULL,
-        blocked BOOL NOT NULL DEFAULT FALSE,
-        PRIMARY KEY (Customer_ID)
-);
-
 CREATE TABLE IF NOT EXISTS Product
 (
     Product_ID  INT            NOT NULL AUTO_INCREMENT,
@@ -34,6 +21,22 @@ CREATE TABLE IF NOT EXISTS Product
     Image_Path  VARCHAR(255),
     PRIMARY KEY (Product_ID)
 );
+CREATE TABLE IF NOT EXISTS Cart (
+    Customer_ID INT NOT NULL,
+    Product_ID INT NOT NULL,
+    Quantity INT NOT NULL DEFAULT 1,
+    FOREIGN KEY (Customer_ID) REFERENCES Customer(Customer_ID),
+    FOREIGN KEY (Product_ID) REFERENCES Product(Product_ID)
+);
+
+
+CREATE TABLE IF NOT EXISTS check_blocked(
+        Customer_ID INT NOT NULL,
+        blocked BOOL NOT NULL DEFAULT FALSE,
+        PRIMARY KEY (Customer_ID)
+);
+
+
 
 INSERT INTO Product (Name, Category, Description, Price, Quantity, Image_Path)
 VALUES 

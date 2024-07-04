@@ -60,6 +60,6 @@ def login():
             return redirect(url_for('home'))  
         else:
             DropTriggerLogin(email)
-            flash('Invalid username or password')
+            flash('Invalid username or password','alert')
             return redirect(url_for('auth.login'))
     return render_template('login.html')  

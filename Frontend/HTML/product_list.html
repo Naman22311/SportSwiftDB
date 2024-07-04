@@ -20,6 +20,17 @@
             font-weight: bold; /* Adjust font weight */
         }
     </style>
+    <style>
+        .product-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+    
+        .product-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    
 </head>
 <body>
 
@@ -56,13 +67,15 @@
     <div class="row">
         {% for product in products %}
         <div class="col-md-4 mb-4">
-            <div class="card h-100">
-                <img src="{{ url_for('static', filename=product[6]) }}" class="card-img-top img-fluid" alt="{{ product[1] }}">
-                <div class="card-body">
-                    <h5 class="card-title">{{ product[1] }}</h5>
-                    <p class="card-text">₹{{ product[4] }}</p>
-                    <!-- Add any additional details here -->
-                </div>
+            <div class="card h-100 product-card">
+                <a href="{{ url_for('product_details.product_detail', product_id=product[0]) }}" class="card-link">
+                    <img src="{{ url_for('static', filename=product[6]) }}" class="card-img-top img-fluid" alt="{{ product[1] }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product[1] }}</h5>
+                        <p class="card-text">₹ {{ product[4] }}</p>
+                        <!-- Add any additional details here -->
+                    </div>
+                </a>
             </div>
         </div>
         {% endfor %}
@@ -75,6 +88,7 @@
 </main>
 
 <!-- Footer -->
+<!--footer-->
 <div class="container">
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
         <p class="col-md-4 mb-0 text-body-secondary">© 2024 SportSwiftDB</p>
@@ -85,4 +99,15 @@
 
         <ul class="nav col-md-4 justify-content-end">
             <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
-            <li 
+            <li class="nav-item"><a href="/FAQ" class="nav-link px-2 text-body-secondary">FAQs</a></li>
+            <li class="nav-item"><a href="/about" class="nav-link px-2 text-body-secondary">About</a></li>
+        </ul>
+    </footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="{{ url_for('static', filename='/JavaScript/home_js.js') }}"></script>
+
+</body>
+</html>
