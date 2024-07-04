@@ -194,6 +194,10 @@
             <h3>Rugby</h3>
         </div>
     </div>
+    <div class="text-center mt-3">
+        <a href="{{ url_for('product_list.products') }}" class="btn btn-primary">Explore All Products</a>
+
+    </div>
 
     <!-- Footer -->
     <div class="container">
@@ -242,6 +246,26 @@
                 }
             });
         });
+    document.addEventListener('DOMContentLoaded', function() {
+        const sportItems = document.querySelectorAll('.sport-item');
+
+        sportItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const sport = this.getAttribute('data-sport');
+                fetch(`/get_products?sport=${sport}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            window.location.href = `/product_list?sport=${sport}`;
+                        } else {
+                            console.error('Failed to fetch products');
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
+            });
+        });
+    });
+    
     </script>
 </body>
 </html>

@@ -16,7 +16,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql+pymysql://{user}:{pin}@{host}/{d
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'Shrutya1%'
+app.config['MYSQL_PASSWORD'] = 'Rnsn@2001'
 app.config['MYSQL_DB'] = 'SportSwiftDB'
 
 mysql = MySQL(app)
@@ -24,7 +24,7 @@ mysql = MySQL(app)
 connection = pymysql.connect(
     host='localhost',
     user='root',
-    password='Shrutya1%',
+    password='Rnsn@2001',
     database='SportSwiftDB',
     cursorclass=pymysql.cursors.DictCursor
 )
@@ -34,7 +34,13 @@ from signUp import signUp
 from Cart import Cart
 from Checkout import Checkout
 from Profile import Profile
-
+from product_details import product_details
+from product_list import product_list
+from explore import explore_bp
+# Register blueprints
+app.register_blueprint(product_details, url_prefix='/product')
+app.register_blueprint(product_list, url_prefix='/products')
+app.register_blueprint(explore_bp)
 app.register_blueprint(auth, url_prefix="/auth")  
 app.register_blueprint(signUp, url_prefix="/signUp")  
 app.register_blueprint(Cart, url_prefix="/Cart")  
@@ -52,6 +58,8 @@ def logout():
 def home():
     return render_template("home.html")
 
+
+
 @app.route("/explore")
 def explore():
     return render_template("explore.html")
@@ -62,4 +70,4 @@ def about():
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
