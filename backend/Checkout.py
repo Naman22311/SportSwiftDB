@@ -25,11 +25,17 @@ def clear_cart():
 
 def fetch_products(customer_id):
     cursor = mysql.connection.cursor()
-    cursor.execute("SELECT * FROM Product WHERE Product_ID IN (SELECT Product_ID FROM Cart WHERE Customer_ID = %s)", (customer_id,))
+    cursor.execute("""
+        SELECT Product.*, Cart.Quantity
+        FROM Product
+        JOIN Cart ON Product.Product_ID = Cart.Product_ID
+        WHERE Cart.Customer_ID = %s
+    """, (customer_id,))
     products = cursor.fetchall()
     cursor.close()
-    
-    total_amount = sum(product[2] for product in products) 
+    print(products)
+    total_amount=0
+    total_amount = sum(product[4] * product[7] for product in products)  # Calculate total amount
     return products, total_amount
 
 @Checkout.route('/checkout', methods=['GET'])

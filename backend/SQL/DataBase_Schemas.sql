@@ -51,7 +51,7 @@ VALUES
 ('Bauer Hockey Stick', 'Hockey', 'Carbon fiber hockey stick for professional use', 8000.00, 15, 'images/hockeystick.png'),
 ('Gray-Nicolls Cricket Bat', 'Cricket', 'Professional-grade cricket bat made of willow', 4800.00, 25, 'images/cricket_bat.png'),
 ('Butterfly Table Tennis Paddle', 'Table Tennis', 'High-performance table tennis paddle with rubber grip', 1280.00, 60, 'images/table_tennis_paddle.jpeg'),
-('Butterfly Table Tennis Paddle', 'Table Tennis', 'High-performance table tennis paddle with rubber grip', 1280.00, 60, 'images/tt2.jpg'),
+('High-tech Table Tennis Paddle', 'Table Tennis', 'High-performance table tennis paddle with rubber grip', 2280.00, 60, 'images/tt2.jpg'),
 ('Table Tennis table', 'Table Tennis', 'High-performance table tennis paddle with rubber grip', 10080.00, 60, 'images/tt3.jpg'),
 ('Skiing bag', 'Skiing', 'Large capacity skiing bag for all your essentials', 1280.00, 60, 'images/bag.jpg'),
 ('Skiing bag', 'Skiing', 'Large capacity skiing bag for all your essentials', 2280.00, 60, 'images/skiing2.jpg'),
@@ -62,10 +62,10 @@ VALUES
 ('Gym tshirt', 'Sport Apparels', 'Stay dry!', 780.00, 60, 'images/cloth1.jpg'),
 ('Gym tshirt', 'Sport Apparels', 'Stay dry!', 880.00, 60, 'images/cloth.jpg'),
 ('Chest fly machine', 'Gym Equipments', 'Has weight variations from 10kg to 50kg', 10080.00, 60, 'images/gym1.jpg'),
-('Dumbelss', 'Gym Equipments', 'Available from 10kg to 100kg', 3000.00, 60, 'images/gym2.jpg'),
+('Dumbelss Set', 'Gym Equipments', 'Available from 10kg to 100kg', 15000.00, 60, 'images/gym2.jpg'),
 ('Gym bicycle', 'Gym Equipments', 'Build some great legs with this', 10080.00, 60, 'images/gym3.jpg'),
 ('Barbell', 'Gym Equipments', 'For Chest Press', 5080.00, 60, 'images/gym4.jpg'),
-('Rugby Ball', 'Rugby', '', 1280.00, 60, 'images/rugby.png'),
+('Rugby Ball', 'Rugby', '', 1280.00, 60, 'images/rr.jpg'),
 ('Rugby Helmet', 'Rugby', '', 1280.00, 60, 'images/rugby2.jpg'),
 ('Running Shoes', 'Running', '', 2000.00, 60, 'images/running.jpg'),
 ('Running Watch', 'Running', '', 5000.00, 60, 'images/running2.jpg'),
@@ -77,4 +77,3 @@ INSERT INTO Customer VALUES (2, 'Naman', "askdn", 'abcd2@gmail.com', 'abcd2', 0)
 SELECT *
 from Customer;
 SELECT * FROM Product
-
