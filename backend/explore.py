@@ -1,6 +1,6 @@
 # explore.py
 from flask import Blueprint, request, jsonify, render_template
-from app import mysql  # Assuming you are using MySQL as your database
+from app import mysql, login_flag
 
 explore_bp = Blueprint("explore", __name__, template_folder='../Frontend/HTML', static_folder='../Frontend/static')
 

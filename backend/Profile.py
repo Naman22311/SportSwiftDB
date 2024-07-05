@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_mysqldb import MySQL
 import secrets
 import pymysql.cursors
-from app import mysql
+from app import mysql, login_flag
 
 Profile = Blueprint('Profile', __name__, template_folder='../Frontend/HTML', static_folder='../Frontend/static')
 

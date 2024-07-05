@@ -1,5 +1,5 @@
 from flask import render_template, jsonify, Blueprint
-from app import mysql
+from app import mysql, login_flag
 
 product_details = Blueprint("product_details", __name__)
 

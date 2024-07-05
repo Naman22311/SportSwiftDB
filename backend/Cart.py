@@ -1,5 +1,5 @@
 from flask import render_template, request, redirect, url_for, flash, session, Blueprint
-from app import mysql
+from app import mysql, login_flag
 
 Cart = Blueprint("Cart", __name__, template_folder='../Frontend/HTML', static_folder='../Frontend/static')
 

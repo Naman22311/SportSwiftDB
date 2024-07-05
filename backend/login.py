@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_mysqldb import MySQL
 import secrets
 import pymysql.cursors
-from app import mysql
+from app import mysql, login_flag
 
 auth = Blueprint("auth", __name__, template_folder='../Frontend/HTML', static_folder='../Frontend/static')
 
@@ -57,6 +57,7 @@ def login():
         if customer:
             session["customer_ID"] = customer
             reset_failed_attempts(email)
+            login_flag = True
             return redirect(url_for('home'))  
         else:
             DropTriggerLogin(email)

@@ -16,8 +16,8 @@
             <span class="fs-4">SportSwiftDB</span>
         </a>
         <ul class="nav nav-pills">
-            <li class="nav-item"><a href="{{ url_for('home') }}" class="nav-link active" aria-current="page" style="background-color: #E73725">Home</a></li>
-            <li class="nav-item"><a href="{{ url_for('explore') }}" class="nav-link" >Explore</a></li>
+            <li class="nav-item"><a href="{{ url_for('home') }}" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="{{ url_for('explore') }}" class="nav-link active" aria-current="page" style="background-color: #E73725">Explore</a></li>
             <li class="nav-item"><a href="{{ url_for('Cart.cart') }}" class="nav-link">Cart</a></li>
             <li class="nav-item"><a href="{{ url_for('about') }}" class="nav-link">About</a></li>
             <li class="dropdown-center">
@@ -27,8 +27,11 @@
                 </svg></a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="{{url_for('Profile.profile')}}">Profile</a></li>
+                    {% if "customer_ID" not in session %}
                     <li><a class="dropdown-item" href="{{ url_for('auth.login')}}" >Login</a></li>
+                    {% else %}
                     <li><a class="dropdown-item" href="{{ url_for('logout') }}">Logout</a></li>
+                    {% endif %}
                 </ul>
             </li>
         </ul>

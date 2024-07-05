@@ -1,5 +1,5 @@
 from flask import render_template, Blueprint
-from app import mysql
+from app import mysql, login_flag
 
 product_list = Blueprint("product_list", __name__,  template_folder='../Frontend/HTML', static_folder='../Frontend/static')
 
