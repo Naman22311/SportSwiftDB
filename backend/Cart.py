@@ -39,7 +39,7 @@ def fetch_products(customer_id):
         SELECT Product.*, Cart.Quantity
         FROM Product
         JOIN Cart ON Product.Product_ID = Cart.Product_ID
-        WHERE Cart.Customer_ID = %s
+        WHERE Cart.Customer_ID = %s AND Cart.Deleted = FALSE
     """, (customer_id,))
     products = cursor.fetchall()
     cursor.close()

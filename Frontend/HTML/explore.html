@@ -107,13 +107,13 @@
 <div class="container">
     <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
         <a href="/" class="d-flex fw-bolder align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-            <span class="fs-4">SportSwiftDB</span>
+            <span class="link-hover-animation fs-4">SportSwiftDB</span>
         </a>
         <ul class="nav nav-pills">
-            <li class="nav-item"><a href="{{ url_for('home') }}" class="nav-link">Home</a></li>
-            <li class="nav-item"><a href="{{ url_for('explore') }}" class="nav-link active" aria-current="page" style="background-color: #E73725">Explore</a></li>
-            <li class="nav-item"><a href="{{ url_for('Cart.cart') }}" class="nav-link">Cart</a></li>
-            <li class="nav-item"><a href="{{ url_for('about') }}" class="nav-link">About</a></li>
+            <li class="grow nav-item"><a href="{{ url_for('home') }}" class="nav-link">Home</a></li>
+            <li class="grow nav-item"><a href="{{ url_for('explore') }}" class="nav-link active" aria-current="page" style="background-color: #E73725">Explore</a></li>
+            <li class="grow nav-item"><a href="{{ url_for('Cart.cart') }}" class="nav-link">Cart</a></li>
+            <li class="grow nav-item"><a href="{{ url_for('about') }}" class="nav-link">About</a></li>
             <li class="dropdown-center">
                 <a class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" class="bi bi-person-circle mx-1 mt-1" viewBox="0 0 16 16">
                     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
@@ -133,7 +133,6 @@
 </div>
 
 <body>
-
 
     <!-- Main Section -->
     <div class="main-section">
@@ -206,20 +205,14 @@
     <div class="container">
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
             <p class="col-md-4 mb-0 text-body-secondary">© 2024 SportSwiftDB</p>
-    
-            <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-                <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-            </a>
-    
+
             <ul class="nav col-md-4 justify-content-end">
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
-                <li class="nav-item"><a href="/FAQ" class="nav-link px-2 text-body-secondary">FAQs</a></li>
-                <li class="nav-item"><a href="/about" class="nav-link px-2 text-body-secondary">About</a></li>
+                <li class="nav-item"><a href="{{ url_for('home') }}" class="nav-link px-2 text-body-secondary">Home</a></li>
+                <li class="nav-item"><a href="{{ url_for('about') }}" class="nav-link px-2 text-body-secondary">About</a></li>
             </ul>
         </footer>
     </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-N4pY5e6p8L5P+BqoaFfXtTUB9w5w4faOG4ckq84D+mI1oH02kSf5LlAWzGbUCFlI" crossorigin="anonymous"></script>
+
     <script>
         const searchInput = document.getElementById('searchInput');
         const searchIcon = document.getElementById('searchIcon');
@@ -270,6 +263,10 @@
     });
     
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='/JavaScript/home_js.js') }}"></script>
+
 </body>
 </html>
         

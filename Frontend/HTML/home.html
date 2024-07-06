@@ -12,13 +12,13 @@
 <div class="container">
     <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
         <a href="/" class="d-flex fw-bolder align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-            <span class="fs-4">SportSwiftDB</span>
+            <span class="link-hover-animation fs-4">SportSwiftDB</span>
         </a>
         <ul class="nav nav-pills">
-            <li class="nav-item"><a href="{{ url_for('home') }}" class="nav-link active" aria-current="page" style="background-color: #E73725">Home</a></li>
-            <li class="nav-item"><a href="{{ url_for('explore') }}" class="nav-link ">Explore</a></li>
-            <li class="nav-item"><a href="{{ url_for('Cart.cart') }}" class="nav-link">Cart</a></li>
-            <li class="nav-item"><a href="{{ url_for('about') }}" class="nav-link">About</a></li>
+            <li class="grow nav-item"><a href="{{ url_for('home') }}" class="nav-link active" aria-current="page" style="background-color: #E73725">Home</a></li>
+            <li class="grow nav-item"><a href="{{ url_for('explore') }}" class="nav-link ">Explore</a></li>
+            <li class="grow nav-item"><a href="{{ url_for('Cart.cart') }}" class="nav-link">Cart</a></li>
+            <li class="grow nav-item"><a href="{{ url_for('about') }}" class="nav-link">About</a></li>
             <li class="dropdown-center">
                 <a class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" class="bi bi-person-circle mx-1 mt-1" viewBox="0 0 16 16">
                     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
@@ -36,7 +36,6 @@
         </ul>
     </header>
 </div>
-
 <!--body-->
 <div class="container">
     <div class="body position-relative overflow-hidden px-3 p-md-5 m-md-3 text-center bg-body-tertiary">
@@ -70,6 +69,7 @@
             <div class="go_up_2 bg-body-tertiary shadow-sm mx-auto" style="width: 80%; height: 150px; border-radius: 21px 21px 0 0;">
             <h2 class="pt-2 display-5 text-secondary-emphasis fw-semibold">About Us</h2>
             <p class="lead ">Read about how we are as a company.</p>
+                <br>
                 <a href="{{ url_for('about') }}">Learn More ></a>
             </div>
             </a>

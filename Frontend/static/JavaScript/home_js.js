@@ -17,31 +17,30 @@ $(".go_up_2").on("mouseout", function() {
     });
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    const link = document.querySelector('.link-hover-animation');
+$(document).ready(function() {
+    const $linkHoverAnimation = $('.link-hover-animation');
 
-    link.addEventListener('mouseover', () => {
-        link.classList.add('bounce-animation');
+    $linkHoverAnimation.on('mouseover', function() {
+        $(this).addClass('bounce-animation');
     });
 
-    link.addEventListener('animationend', () => {
-        link.classList.remove('bounce-animation');
+    $linkHoverAnimation.on('animationend', function() {
+        $(this).removeClass('bounce-animation');
     });
 });
-document.addEventListener('DOMContentLoaded', () => {
-    const body = document.querySelector('body');
-    body.classList.add('visible');
-});
 
-document.addEventListener('DOMContentLoaded', () => {
-    const link = document.querySelector('.link-shake');
+$(document).ready(function() {
+    const $shakeAnimation = $('.grow');
 
-    link.addEventListener('click', (event) => {
-        event.preventDefault();
-        link.classList.add('shake-animation');
-        link.addEventListener('animationend', () => {
-            link.classList.remove('shake-animation');
-            window.location.href = link.href; // Redirect after the animation
-        }, { once: true });
+    $shakeAnimation.on('mouseover', function() {
+        $(this).addClass('grow-animation');
+    });
+
+    $shakeAnimation.on('mouseout', function() {
+        $(this).removeClass('grow-animation');
     });
 });
+$(document).ready(function() {
+    $('body').addClass('visible');
+});
+
