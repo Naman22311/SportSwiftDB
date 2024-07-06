@@ -23,7 +23,7 @@ def add_to_cart(product_id):
 
 def delete_product_from_cart(customer_id, product_id):
     cursor = mysql.connection.cursor()
-    cursor.execute("DELETE FROM Cart WHERE Customer_ID = %s AND Product_ID = %s", (customer_id, product_id))
+    cursor.execute("UPDATE Cart SET Deleted = TRUE WHERE Customer_ID = %s AND Product_ID = %s", (customer_id, product_id))
     mysql.connection.commit()
     cursor.close()
 

@@ -14,7 +14,7 @@ def clear_cart():
         cursor = mysql.connection.cursor()
         try:
             cursor.execute("START TRANSACTION")
-            cursor.execute("DELETE FROM Cart WHERE Customer_ID = %s", (customer_id,))
+            cursor.execute("DELETE FROM Cart WHERE Customer_ID = %s AND Deleted = FALSE", (customer_id,))
             cursor.execute("COMMIT")
             mysql.connection.commit()
         except Exception as e:
