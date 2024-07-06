@@ -1010,7 +1010,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="293" parent="1" name="sportswiftdb">
-      <LastIntrospectionLocalTimestamp>2024-07-06.05:15:08</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2024-07-06.07:00:16</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="294" parent="1" name="sys">
@@ -1127,7 +1127,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="319" parent="303" name="Customer_ID">
-      <AutoIncrement>3</AutoIncrement>
+      <AutoIncrement>1</AutoIncrement>
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -1216,7 +1216,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Type>btree</Type>
     </index>
     <column id="337" parent="305" name="Product_ID">
-      <AutoIncrement>11</AutoIncrement>
+      <AutoIncrement>1</AutoIncrement>
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
