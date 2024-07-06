@@ -1,6 +1,7 @@
 Create database IF NOT EXISTS SportSwiftDB;
 USE SportSwiftDB;
 
+
 CREATE TABLE IF NOT EXISTS Customer
 (
     Customer_ID     INT                 NOT NULL AUTO_INCREMENT,
