@@ -43,10 +43,16 @@ def get_customer_details(customer_id):
 
 def fetch_products(customer_id):
     cursor = mysql.connection.cursor()
-    cursor.execute("SELECT * FROM Product WHERE Product_ID IN (SELECT Product_ID FROM Orders WHERE Customer_ID = %s)", (customer_id,))
+    cursor.execute("""
+        SELECT Product.*, Orders.Quantity
+        FROM Product
+        JOIN Orders ON Product.Product_ID = Orders.Product_ID
+        WHERE Orders.Customer_ID = %s
+    """, (customer_id,))
     products = cursor.fetchall()
     cursor.close()
     return products
+
 
 @Profile.route('/profile', methods=['GET'])
 def profile():

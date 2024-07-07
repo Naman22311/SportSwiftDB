@@ -11,16 +11,28 @@ Checkout = Blueprint('Checkout', __name__, template_folder='../Frontend/HTML', s
 def clear_cart():
     customer_id = session.get("customer_ID")
     if customer_id:
-        cursor = mysql.connection.cursor()
         try:
+            cursor = mysql.connection.cursor()
             cursor.execute("START TRANSACTION")
+
+            # Move items from Cart to Orders
+            cursor.execute("""
+                INSERT INTO Orders (Customer_ID, Product_ID, Quantity)
+                SELECT Customer_ID, Product_ID, Quantity
+                FROM Cart
+                WHERE Customer_ID = %s AND Deleted = FALSE
+            """, (customer_id,))
+            
+            # Clear Cart
             cursor.execute("DELETE FROM Cart WHERE Customer_ID = %s AND Deleted = FALSE", (customer_id,))
+            
             cursor.execute("COMMIT")
-            mysql.connection.commit()
+            flash('Cart cleared successfully.', 'success')
         except Exception as e:
-            mysql.connection.rollback()
-        
-        cursor.close()
+            cursor.execute("ROLLBACK")
+            flash('Failed to clear cart.', 'error')
+        finally:
+            cursor.close()
     return redirect(url_for('home'))
 
 def fetch_products(customer_id):

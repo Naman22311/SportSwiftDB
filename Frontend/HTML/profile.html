@@ -75,6 +75,8 @@
                     <div class="col p-4 d-flex flex-column position-static">
                         <h3 class="mb-0">{{ product[1] }}</h3>
                         <div class="mb-1 text-body-secondary">Price: ₹ {{ product[4] }}</div>
+                        <div class="mb-1 text-body-secondary">Quantity Ordered: {{ product[7] }}</div>
+                        <div class="mb-1 text-body-secondary">Total Price: {{ product[7] *  product[4] }}</div>
                         <p class="card-text mb-auto">{{ product[3] }}</p>
                         
                     </div>
