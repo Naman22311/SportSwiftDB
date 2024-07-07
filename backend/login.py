@@ -28,12 +28,13 @@ def validate_customer(username, password):
 
 def get_blocked(username):
     cursor = mysql.connection.cursor()
-    cursor.execute("SELECT blocked FROM customer NATURAL JOIN check_blocked where email_ID =%s;", (username,))
+    cursor.execute("SELECT blocked FROM customer NATURAL JOIN check_blocked where email_ID = %s;", (username,))
     failed_attempts = cursor.fetchone()
     cursor.close()
     if failed_attempts is None:
-        return 0
-    return failed_attempts['blocked']
+        return False
+    return failed_attempts[0]
+
 
 def DropTriggerLogin(username):
     cursor = mysql.connection.cursor()
@@ -50,7 +51,7 @@ def login():
         failed_attempts = get_blocked(email)
 
         if failed_attempts:
-            flash('Your account is locked due to too many failed login attempts. Please contact support.', 'error')
+            flash('Your account is locked due to too many failed login attempts. Please contact support at SportSwiftDB@gmail.com.', 'error')            
             return redirect(url_for('auth.login'))
 
         customer = validate_customer(email, password)
