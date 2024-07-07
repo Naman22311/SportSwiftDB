@@ -1,6 +1,6 @@
 # SportSwiftDB 🏀🏈⚾🏉🎾🏑🏒🏸
 
-Welcome to **SportSwiftDB**! 🌟 At SportSwift, we pride ourselves on offering an extensive array of products from a diverse selection of renowned brands. Unlike competitors such as Decathlon, which exclusively sells its own branded items, our varied inventory allows us to cater to a broader spectrum of customer preferences and needs. This unique approach has made us the go-to destination for sports enthusiasts, enabling us to meet the demands of a wider audience and significantly enhance customer satisfaction and loyalty. 🏆
+Welcome to **SportSwiftDB**! 🌟 At SportSwift, we offer extensive products from a diverse selection of renowned brands. Unlike competitors such as Decathlon, which exclusively sells its own branded items, our varied inventory allows us to cater to a broader spectrum of customer preferences and needs. This unique approach has made us the go-to destination for sports enthusiasts, enabling us to meet the demands of a wider audience and significantly enhance customer satisfaction and loyalty. 🏆
 
 **Check out our demo video**: [Watch Now](https://youtu.be/bJzdABS5jGU) 📹
 
@@ -44,8 +44,8 @@ Follow these steps to get the project up and running:
 
 ## Made By 👨‍💻👩‍💻
 
-Naman Jindal (IIITD'26 CSB)
-Shrutya Chawla (IIITD'26 CSE)  
+    Naman Jindal (IIITD'26 CSB) 
+    Shrutya Chawla (IIITD'26 CSE)  
 
 ---
 
